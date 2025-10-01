@@ -3,8 +3,9 @@ import ServicesCard from "../components/ServicesCard";
 
 export default function Services() {
   return (
-      <div className="w-full px-6 py-6 md:px-30 md:py-10
-          outline-2 outline-blue-700
+    <section id='Servicios'>
+      <div className="w-full px-6 py-6 md:px-40 md:py-15 shadow-xl/30 shadow-blue-700
+          outline-3 outline-blue-900 
           bg-gradient-to-b from-slate-700/85 via-gray-900/40 to-slate-700/85">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Soluciones digitales hechas a tu medida
@@ -21,6 +22,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    // {/* </SectionWrapper> */}
+    </section>
   );
 }

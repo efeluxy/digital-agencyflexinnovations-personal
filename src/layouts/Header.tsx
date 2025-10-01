@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import { HiX, HiMenu } from "react-icons/hi";
+import { HiMoon, HiSun } from "react-icons/hi2";
 import logo from "../assets/logo/logo.png";
 import useScrollTo from "../utils/useScrollTo";
+import { useTheme } from "../layouts/ThemeContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("Inicio");
- 
-  var scrollTo = useScrollTo();
-  var sections = ["Inicio", "Servicios", "Sobre Nosotros", "Contacto"];
+  const { theme, toggleTheme } = useTheme();
+  
+  const scrollTo = useScrollTo();
+  const sections = ["Inicio", "Servicios", "Sobre Nosotros", "Contacto"];
 
   // Control header hide/show
   useEffect(() => {
@@ -40,7 +43,7 @@ export default function Header() {
           }
         });
       },
-      { threshold: 0.5 } // 50% visible
+      { threshold: 0.3 }
     );
 
     sections.forEach((section) => {
@@ -109,7 +112,24 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="hidden md:flex">
+          {/* Botones derecha: Theme Switch + CTA */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Theme Switch Button */}
+            <button
+              onClick={toggleTheme}
+              className="relative w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 
+                         flex items-center justify-center transition-all duration-300 hover:scale-110 
+                         hover:bg-white/20 hover:shadow-lg group"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <HiSun className="w-6 h-6 text-yellow-300 transition-transform duration-300 group-hover:rotate-180" />
+              ) : (
+                <HiMoon className="w-6 h-6 text-slate-200 transition-transform duration-300 group-hover:-rotate-12" />
+              )}
+            </button>
+
+            {/* CTA Button */}
             <div className="relative rounded-xl transition-all duration-300 ease">
               <Button text={"Agenda tu Cita"} className="p-3 text-xl" />
             </div>
@@ -142,6 +162,26 @@ export default function Header() {
               {item}
             </p>
           ))}
+
+          {/* Theme Switch Mobile */}
+          <button
+            onClick={toggleTheme}
+            className="w-full py-4 px-6 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 
+                       flex items-center justify-center gap-3 transition-all duration-300 
+                       hover:bg-white/20 transform hover:scale-105"
+          >
+            {theme === "dark" ? (
+              <>
+                <HiSun className="w-6 h-6 text-yellow-300" />
+                <span className="text-white/90">Tema Claro</span>
+              </>
+            ) : (
+              <>
+                <HiMoon className="w-6 h-6 text-slate-700" />
+                <span className="text-white/90">Tema Oscuro</span>
+              </>
+            )}
+          </button>
 
           <div
             className="mt-4 relative overflow-hidden rounded-xl"
