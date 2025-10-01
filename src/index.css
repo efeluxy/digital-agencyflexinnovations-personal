@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+html, body {
+  /* user-select: none; */
+  background-color: #141516;
+  color: #EDECEA;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+:root {
+  --black1: #15151D;
+  --black2: #26292A;
+  --grey: #A9A9A9;
+  --white: #EDECEA;
+  --blue1: #2a77e9;
+  --blue2: #1D48AC;
+  --blue3: #062F5B;
+  --teal: #008080;
+}
+
+/* ==================== */
+/* ANIMACIONES PARA EL FONDO ANIMADO */
+/* ==================== */
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg); 
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* 🔥 Animaciones optimizadas para AppLayout */
+
+@keyframes fadeGradient {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-fadeGradient {
+  animation: fadeGradient 12s ease-in-out infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 6s ease-in-out infinite;
+}
+
+.animate-bounce-slower {
+  animation: bounce-slow 10s ease-in-out infinite;
+}
+
+/* ==================== */
+/* ANIMACIONES PARA EL MENÚ Y LINKS */
+/* ==================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Soporte para backdrop-filter */
+@supports (backdrop-filter: blur(30px)) {
+  .supports-backdrop-filter {
+    backdrop-filter: blur(30px) saturate(180%);
+  }
+}
+
+/* Efecto de vidrio mejorado en dispositivos de alta resolución */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  nav {
+    backdrop-filter: blur(40px) saturate(200%);
+  }
+}
+
+/* ==================== */
+/* EFECTOS EXTRA */
+/* ==================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ==================== */
+/* INPUTS NUMBER */
+/* ==================== */
+
+/* Quitar flechas en inputs number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
