@@ -21,7 +21,7 @@ export default function Home() {
               className="w-[80%] md:w-[25%] h-16 text-xl m-auto"
             />
           </div>
-          <div className="md:pt-16">
+          <div className="mb-30 md:pt-16">
             <HighlightsCard />
           </div>
         </div>
