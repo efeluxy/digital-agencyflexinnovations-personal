@@ -10,7 +10,9 @@ export default function Form() {
         </h1>
         <div className="flex flex-col md:flex-row gap-14 w-full min-h-[700px] mt-4">
           {/* Columna izquierda: Formulario */}
-          <div className="flex-1 min-w-[420px] min-h-[650px] bg-gray-900/80 backdrop-blur-xl p-16 rounded-2xl border border-white/10 flex flex-col justify-center">
+          <div className="flex-1 min-w-[420px] min-h-[650px] p-16 rounded-2xl border border-white/10 flex flex-col justify-center
+              bg-gradient-to-tr from-blue-900/80 via-slate-900/90 to-blue-800/80 rounded-2xl p-4 shadow-xl border-2 border-blue-400
+            ">
             <form id="Contacto" className="flex flex-col gap-6 w-full">
               {/* Campos principales */}
               <div className="flex flex-col md:flex-row gap-4">
@@ -123,12 +125,14 @@ export default function Form() {
             </form>
           </div>
           {/* Columna derecha: Chatbot visual dentro de contenedor igual al formulario */}
-          <div className="flex-1 min-w-[420px] min-h-[650px] bg-gray-900/80 backdrop-blur-xl p-16 rounded-2xl border border-white/10 flex items-center justify-center">
+          <div className="flex-1 min-w-[420px] min-h-[650px] bg-gray-900/80 backdrop-blur-xl p-16 rounded-2xl border border-white/10 flex items-center justify-center
+            bg-gradient-to-br from-blue-900/80 via-slate-900/90 to-blue-800/80 rounded-2xl p-4 shadow-xl border-2 border-blue-400
+          ">
             <div className="w-full h-full flex items-center justify-center">
               <iframe
                 src="https://calendly.com/agencyflexinnovations/new-meeting"
                 title="Reserva tu cita"
-                className="w-full h-[500px] rounded-xl border-none bg-white"
+                className="w-full h-[500px] rounded-xl border-2 border-blue-300 shadow-lg bg-white"
                 style={{ minHeight: '400px', maxWidth: '500px' }}
                 allowFullScreen
               ></iframe>

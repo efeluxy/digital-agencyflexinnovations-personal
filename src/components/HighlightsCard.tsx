@@ -27,7 +27,7 @@ const highlights: Highlight[] = [
 
 export default function HighlightsCard() {
   return (
-    <section className="pt-20 md:pt-14 px-4 max-w-6xl md:max-w-full mx-auto grid grid-cols-1 md:flex gap-12 md:gap-20">
+    <section className="pt-20 md:pt-14 px-4 max-w-6xl md:max-w-full mx-auto flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20">
       {highlights.map((item, index) => (
         <div
           key={index}
