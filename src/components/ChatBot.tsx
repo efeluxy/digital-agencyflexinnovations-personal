@@ -407,16 +407,16 @@ export default function ChatBot() {
   };
 
   return (
-    <div className="md:max-w-md mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+  <div className="md:max-w-md mx-auto bg-gray-900 rounded-2xl overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-700 p-4">
+  <div className="bg-blue-900 p-4">
         <div className="flex items-center">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
-            <Bot className="w-6 h-6 text-blue-600" />
+          <div className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center mr-3">
+            <Bot className="w-6 h-6 text-blue-300" />
           </div>
           <div>
             <h2 className="text-white font-semibold">Peluquería Bella Vista</h2>
-            <p className="text-blue-100 text-sm">
+            <p className="text-blue-200 text-sm">
               Asistente Virtual • En línea
             </p>
           </div>
@@ -424,7 +424,7 @@ export default function ChatBot() {
       </div>
 
       {/* Messages */}
-      <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-50">
+  <div className="h-96 overflow-y-auto p-4 space-y-4 bg-gray-950">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -435,22 +435,22 @@ export default function ChatBot() {
             <div className="max-w-xs">
               {message.sender === "bot" && (
                 <div className="flex items-center mb-1">
-                  <Bot className="w-4 h-4 text-blue-600 mr-1" />
-                  <span className="text-xs text-gray-500">Asistente</span>
+                  <Bot className="w-4 h-4 text-blue-300 mr-1" />
+                  <span className="text-xs text-blue-200">Asistente</span>
                 </div>
               )}
               {message.sender === "user" && (
                 <div className="flex items-center justify-end mb-1">
-                  <span className="text-xs text-gray-500">Tú</span>
-                  <User className="w-4 h-4 text-green-600 ml-1" />
+                  <span className="text-xs text-green-200">Tú</span>
+                  <User className="w-4 h-4 text-green-300 ml-1" />
                 </div>
               )}
 
               <div
                 className={`rounded-2xl px-4 py-2 ${
                   message.sender === "user"
-                    ? "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
-                    : "bg-white text-gray-800 shadow-sm border"
+                    ? "bg-gradient-to-r from-blue-700 to-blue-900 text-white"
+                    : "bg-gray-800 text-blue-100 shadow-sm border border-gray-700"
                 }`}
               >
                 <p className="text-sm whitespace-pre-wrap">{message.text}</p>
@@ -466,7 +466,7 @@ export default function ChatBot() {
       </div>
 
       {/* Input */}
-      <div className="p-4 border-t bg-white">
+      <div className="p-4 border-t bg-gray-900">
         <div className="flex items-center space-x-2">
           <input
             type="text"
@@ -474,11 +474,11 @@ export default function ChatBot() {
             onChange={(e) => setInputText(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
             placeholder="Escribe tu mensaje..."
-            className="flex-1 px-4 py-2 border text-black border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-0"
+            className="flex-1 px-4 py-2 border bg-gray-800 text-blue-100 border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-w-0 placeholder:text-blue-300"
           />
           <button
             onClick={handleSendMessage}
-            className="flex-shrink-0 min-w-[44px] h-[44px] flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-full hover:from-blue-600 hover:to-blue-800 transition-all duration-300 transform cursor-pointer hover:scale-105"
+            className="flex-shrink-0 min-w-[44px] h-[44px] flex items-center justify-center bg-gradient-to-r from-blue-700 to-blue-900 text-white rounded-full hover:from-blue-800 hover:to-blue-950 transition-all duration-300 transform cursor-pointer hover:scale-105"
           >
             <Send className="w-5 h-5" />
           </button>
@@ -486,9 +486,8 @@ export default function ChatBot() {
       </div>
 
       {/* Demo Instructions */}
-      <div className="bg-gray-100 p-3 text-xs text-gray-600 text-center">
-        💡 <strong>Demo:</strong> Escribe "quiero reservar una cita" para
-        comenzar
+      <div className="bg-gray-800 p-3 text-xs text-blue-200 text-center">
+        💡 <strong>Demo:</strong> Escribe "quiero reservar una cita" para comenzar
       </div>
     </div>
   );

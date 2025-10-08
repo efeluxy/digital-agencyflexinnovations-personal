@@ -32,11 +32,11 @@ export default function HighlightsCard() {
         <div
           key={index}
           className="w-full h-auto min-w-[220px] max-w-[320px] min-h-[320px] p-10 flex flex-col justify-between items-center
-                      bg-white/10 backdrop-blur-3xl rounded-2xl
+                      rounded-2xl
                       border border-blue-300
                       relative overflow-hidden
                       transition-transform duration-500 ease-out
-                      hover:scale-105 hover:bg-white/20"
+                      hover:scale-105 hover:bg-blue-400/20"
           style={{
             animation: `fadeInUp 0.6s ease-out forwards`,
             animationDelay: `${index * 150}ms`,

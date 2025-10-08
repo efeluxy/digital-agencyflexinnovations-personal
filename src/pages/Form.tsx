@@ -3,19 +3,31 @@ import FormField from "../components/FormField";
 
 export default function Form() {
   return (
-    <section id="Contacto" className="flex min-h-screen w-full justify-center items-center p-8">
-      <div className="flex flex-col w-full max-w-7xl">
-        <h1 className="text-5xl font-bold text-center bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent pb-8">
+    <section
+      id="Contacto"
+      className="flex min-h-screen w-full justify-center items-center px-4 py-8 sm:px-6 sm:py-12 lg:px-8 xl:py-16"
+    >
+      <div className="flex flex-col w-full max-w-6xl">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-center pb-6 sm:pb-8 lg:pb-10">
           Estamos para ayudarte
         </h1>
-        <div className="flex flex-col md:flex-row gap-14 w-full min-h-[700px] mt-4">
+
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 xl:gap-14 w-full mt-2 sm:mt-4">
           {/* Columna izquierda: Formulario */}
-          <div className="flex-1 min-w-[420px] min-h-[650px] p-16 rounded-2xl border border-white/10 flex flex-col justify-center
-              bg-gradient-to-tr from-blue-900/80 via-slate-900/90 to-blue-800/80 rounded-2xl p-4 shadow-xl border-2 border-blue-400
-            ">
-            <form id="Contacto" className="flex flex-col gap-6 w-full">
+          <div
+            className="flex-1 w-full lg:w-1/2 min-h-fit p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl border border-white/10 flex flex-col justify-center
+              bg-blue-900/80
+            "
+          >
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center">
+              Formulario
+            </h1>
+            <form
+              id="Contacto"
+              className="flex flex-col gap-4 sm:gap-5 lg:gap-6 w-full"
+            >
               {/* Campos principales */}
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                 {[
                   {
                     label: "Nombre Completo",
@@ -31,7 +43,7 @@ export default function Form() {
                     placeholder: "Teléfono...",
                   },
                 ].map((field) => (
-                  <div className="w-full md:w-1/2" key={field.name}>
+                  <div className="w-full sm:w-1/2" key={field.name}>
                     <FormField
                       type="label"
                       htmlFor={field.name}
@@ -60,13 +72,13 @@ export default function Form() {
                 required
               />
 
-              {/* Servicios de interés (Checkboxes) y Mensaje */}
-              <div className="grid grid-cols-1 gap-5">
+              {/* Servicios de interés */}
+              <div className="grid grid-cols-1 gap-4 sm:gap-5">
                 <div>
-                  <span className="text-gray-200 font-medium mb-1">
+                  <span className="text-gray-200 font-medium mb-1 block text-sm sm:text-base">
                     Servicios de interés
                   </span>
-                  <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-200">
+                  <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-gray-200 text-sm sm:text-base">
                     {[
                       { label: "Servicio nº 1", value: "servicio1" },
                       { label: "Servicio nº 2", value: "servicio2" },
@@ -75,21 +87,35 @@ export default function Form() {
                     ].map((service) => (
                       <label
                         key={service.value}
-                        className="p-4 flex items-center gap-2 bg-white/10 p-2 rounded-lg border border-white/20 backdrop-blur-md shadow-md cursor-pointer hover:bg-white/20 transition"
+                        className="p-2.5 sm:p-3 flex items-center gap-2 bg-gray-800 rounded-lg border border-gray-700 cursor-pointer hover:bg-gray-700 transition"
                       >
-                        <input
-                          type="checkbox"
-                          name="services"
-                          value={service.value}
-                          className="w-5 h-5 text-blue-400 bg-transparent border-white/40 rounded focus:ring-0"
-                        />
+                        <span className="relative inline-block w-5 h-5">
+                          <input
+                            type="checkbox"
+                            name="services"
+                            value={service.value}
+                            className="peer appearance-none w-5 h-5 border-2 border-blue-400 rounded-md bg-gray-900 checked:bg-blue-600 checked:border-blue-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                          />
+                          <svg
+                            className="pointer-events-none absolute left-0 top-0 w-5 h-5 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polyline points="5 11 9 15 15 7" />
+                          </svg>
+                        </span>
                         {service.label}
                       </label>
                     ))}
                   </div>
                 </div>
+
+                {/* Mensaje */}
                 <div>
-                  {/* Mensaje */}
                   <FormField
                     type="label"
                     htmlFor="message"
@@ -106,34 +132,52 @@ export default function Form() {
                 </div>
               </div>
 
-              {/* Checkbox de políticas y Botón */}
+              {/* Checkbox y botón */}
               <div className="flex items-center gap-2">
-                <FormField
-                  name="terms"
-                  type="checkbox"
-                  required
-                  className="w-5 h-5 text-blue-400 bg-transparent border-white/40 rounded focus:ring-0"
-                />
-                <label htmlFor="terms" className="text-gray-300 text-sm">
-                  Acepto las{" "}
-                  <a href="/politicas" className="text-blue-400 underline">
-                    políticas de privacidad
-                  </a>
+                <label className="flex items-center gap-2 cursor-pointer select-none">
+                  <span className="relative inline-block w-5 h-5">
+                    <input
+                      type="checkbox"
+                      name="terms"
+                      required
+                      className="peer appearance-none w-5 h-5 border-2 border-violet-400 rounded-md bg-gray-900 checked:bg-gradient-to-br checked:from-blue-500 checked:to-violet-500 checked:border-violet-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400"
+                    />
+                    <svg
+                      className="pointer-events-none absolute left-0 top-0 w-5 h-5 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="5 11 9 15 15 7" />
+                    </svg>
+                  </span>
+                  <span className="text-gray-300 text-xs sm:text-sm">
+                    Acepto las{' '}
+                    <a href="/politicas" className="text-violet-400 underline">
+                      políticas de privacidad
+                    </a>
+                  </span>
                 </label>
               </div>
               <Button text="Enviar" />
             </form>
           </div>
-          {/* Columna derecha: Chatbot visual dentro de contenedor igual al formulario */}
-          <div className="flex-1 min-w-[420px] min-h-[650px] bg-gray-900/80 backdrop-blur-xl p-16 rounded-2xl border border-white/10 flex items-center justify-center
-            bg-gradient-to-br from-blue-900/80 via-slate-900/90 to-blue-800/80 rounded-2xl p-4 shadow-xl border-2 border-blue-400
-          ">
-            <div className="w-full h-full flex items-center justify-center">
+
+          {/* Columna derecha: Calendly */}
+          <div
+            className="flex-1 w-full lg:w-1/2 min-h-fit bg-blue-900/80 p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl border border-white/10 flex flex-col items-center justify-start"
+          >
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-center">
+              Agenda una Videollamada
+            </h1>
+            <div className="w-full flex-1 flex items-center justify-center min-h-[24rem] sm:min-h-[28rem] lg:min-h-[32rem]">
               <iframe
                 src="https://calendly.com/agencyflexinnovations/new-meeting"
                 title="Reserva tu cita"
-                className="w-full h-[500px] rounded-xl border-2 border-blue-300 shadow-lg bg-white"
-                style={{ minHeight: '400px', maxWidth: '500px' }}
+                className="w-full h-full aspect-[4/5] sm:aspect-[3/4] rounded-lg sm:rounded-xl border-2 border-blue-300 shadow-lg bg-blue-900/80"
                 allowFullScreen
               ></iframe>
             </div>

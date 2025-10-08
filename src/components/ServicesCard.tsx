@@ -4,13 +4,13 @@ import Button from "../components/Button";
 export default function ServicesCard() {
   return (
     <div
-      className="w-full rounded-3xl backdrop-blur-3xl bg-slate-900 border-2 border-blue-600
+      className="w-full rounded-3xl bg-slate-900 border-2 border-blue-600
                 p-6 md:p-8"
     >
       {/* Encabezado */}
       <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
-        <div className="p-3 md:p-6 bg-slate-950 rounded-full flex justify-center items-center flex-shrink-0">
-          <RiRobot2Line className="w-10 h-10 md:w-16 md:h-16 text-blue-300" />
+        <div className="p-3 md:p-6 bg-blue-300 rounded-full flex justify-center items-center flex-shrink-0">
+          <RiRobot2Line className="w-10 h-10 md:w-16 md:h-16 text-slate-950" />
         </div>
         <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-blue-300 text-center sm:text-left break-words">
           Automatización Inteligente

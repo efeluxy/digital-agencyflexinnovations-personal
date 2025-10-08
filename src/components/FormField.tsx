@@ -30,7 +30,7 @@ const FormField: FC<FormFieldProps> = ({
           value={value}
           onChange={onChange}
           required={required}
-          className={`p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 backdrop-blur-md shadow-md resize-none ${className}`}
+          className={`p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none ${className}`}
         />
       ) : type === "label" ? (
         <label
@@ -46,7 +46,7 @@ const FormField: FC<FormFieldProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400 backdrop-blur-md shadow-md ${className}`}
+          className={`p-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 ${className}`}
         />
       )}
     </div>
