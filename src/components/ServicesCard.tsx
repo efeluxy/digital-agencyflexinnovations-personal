@@ -4,7 +4,7 @@ import Button from "../components/Button";
 export default function ServicesCard() {
   return (
     <div
-      className="w-full rounded-3xl bg-slate-900 border-2 border-blue-600
+      className="w-full max-w-3xl mx-auto rounded-3xl bg-slate-900 border-2 border-blue-600
                 p-6 md:p-8"
     >
       {/* Encabezado */}

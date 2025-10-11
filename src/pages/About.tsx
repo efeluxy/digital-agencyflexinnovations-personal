@@ -1,4 +1,4 @@
-import logo from "../assets/logo/logo.png";
+import Logo from "../assets/logo/Logo.png";
 import Button from "../components/Button";
 
 export default function About() {
@@ -9,9 +9,9 @@ export default function About() {
         <div className="relative flex justify-center">
           <div className="absolute -inset-8 rounded-full blur-3xl opacity-50 animate-pulse"></div>
           <img
-            src={logo}
+            src={Logo}
             alt="logo"
-            className="relative w-52 h-52 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-xl shadow-2xl z-10"
+            className="relative w-52 h-52 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-xl z-10"
           />
         </div>
 

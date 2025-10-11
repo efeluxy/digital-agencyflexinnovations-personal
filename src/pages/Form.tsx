@@ -1,7 +1,10 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import FormField from "../components/FormField";
 
 export default function Form() {
+  const [showPolicies, setShowPolicies] = useState(false);
+
   return (
     <section
       id="Contacto"
@@ -155,14 +158,53 @@ export default function Form() {
                     </svg>
                   </span>
                   <span className="text-gray-300 text-xs sm:text-sm">
-                    Acepto las{' '}
-                    <a href="/politicas" className="text-violet-400 underline">
-                      políticas de privacidad
-                    </a>
+                    Acepto todas las{' '}
+                    <button
+                      type="button"
+                      className="text-violet-400 underline focus:outline-none hover:text-violet-300 transition"
+                      onClick={() => setShowPolicies(true)}
+                    >
+                      Políticas de Privacidad
+                    </button>
                   </span>
                 </label>
               </div>
               <Button text="Enviar" />
+
+              {/* Bocadillo de Políticas de Privacidad */}
+              {showPolicies && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+                  <div className="relative">
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-gray-900" />
+                    <div className="bg-gray-900 text-gray-100 rounded-xl p-12 max-w-2xl w-full shadow-2xl relative animate-fade-in">
+                      <button
+                        className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-violet-700 text-gray-200 hover:text-white rounded-full shadow transition-all duration-200 z-10"
+                        onClick={() => setShowPolicies(false)}
+                        aria-label="Cerrar"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="w-6 h-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <line x1="6" y1="6" x2="18" y2="18" />
+                          <line x1="6" y1="18" x2="18" y2="6" />
+                        </svg>
+                      </button>
+                      <h2 className="text-lg font-bold mb-4 text-center">
+                        Políticas de Privacidad
+                      </h2>
+                      <div className="text-sm text-gray-300 text-center">
+                        Aquí podrás leer y aceptar las políticas de privacidad y
+                        cookies próximamente.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </form>
           </div>
 

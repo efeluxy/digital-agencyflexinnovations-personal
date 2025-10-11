@@ -1,8 +1,31 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('./assets/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  filter: brightness(0.7) blur(16px);
+  opacity: 0.8;
+  pointer-events: none;
+}
 @import "tailwindcss";
 
 html, body {
   /* user-select: none; */
-  background-color: #141516;
+  background-color: #1d1d1d;
   color: #EDECEA;
   scroll-behavior: smooth;
   margin: 0;
