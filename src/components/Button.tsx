@@ -16,7 +16,7 @@ export default function Button({ text, className }: ButtonProps) {
     <div
       onClick={handleClick}
       className={`bg-gradient-to-b from-[var(--blue1)] to-[var(--blue2)] hover:bg-gradient-to-b hover:from-blue-500 hover:to-blue-800 rounded-lg flex items-center justify-center text-center 
-        px-4 py-2 transform transition duration-300 ease-in-out cursor-pointer hover:scale-110 shadow-md hover:shadow-[0_0_15px_rgba(0,255,255,0.8),0_0_30px_rgba(0,173,255,0.5)] ${
+        px-4 py-2 transform transition duration-300 ease-in-out cursor-pointer hover:scale-110 hover:shadow-[0_0_15px_rgba(0,140,255,0.8),0_0_20px_rgba(0,120,255,0.5)] ${
         className || ""
       }`}
     >

@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import HighlightsCard from "../components/HighlightsCard";
+import HighlightsCardCarousel from "../components/HighlightsCard";
 
 export default function Home() {
   return (
@@ -22,7 +22,7 @@ export default function Home() {
             />
           </div>
           <div className="mb-30 md:pt-16">
-            <HighlightsCard />
+            <HighlightsCardCarousel />
           </div>
         </div>
       </section>

@@ -62,7 +62,7 @@ export default function Header() {
       >
         <nav
           ref={navRef}
-          className="relative w-full md:w-[80%] h-16 p-4 md:h-20 flex items-center backdrop-blur-xl border-b border-blue-400/20 md:bg-blue-950/50 md:backdrop-blur md:rounded-2xl md:border md:border-blue-400/40 transition-all duration-500 ease-out"
+          className="relative w-full md:w-[80%] h-16 p-4 md:h-20 flex items-center backdrop-blur-xl border-b border-slate-400/20 md:bg-gray-800/30 md:backdrop-blur md:rounded-2xl md:border md:border-white-400/40 transition-all duration-500 ease-out"
         >
           {/* Botón menú hamburguesa solo en móvil */}
           <button
