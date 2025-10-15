@@ -5,7 +5,7 @@ export default function Services() {
   return (
     <section id='Servicios'>
       <div className="w-full px-6 py-6 md:px-40 md:py-15">
-        <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-16">
+        <h2 className="text-2xl md:text-5xl font-extrabold text-center mb-16">
           Soluciones digitales hechas a tu medida
         </h2>
         <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-center">
