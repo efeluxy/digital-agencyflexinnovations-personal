@@ -1,4 +1,4 @@
-import Logo from "../assets/logo/Logo.png";
+import Logo from "../assets/logo/Logo2.png";
 import Button from "../components/Button";
 
 export default function About() {
