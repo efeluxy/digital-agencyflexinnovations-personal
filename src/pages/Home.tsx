@@ -10,7 +10,7 @@ export default function Home() {
       >
         <div className="flex flex-col text-center h-screen gap-8 md:gap-2">
           <h1 className="text-2xl md:text-4xl font-extrabold pb-8">
-            Automatizamos. Analizamos. Impulsamos resultados.
+            Automatizamos. Analizamos. Impulsamos resultados
           </h1>
           <p className="text-lg md:text-2xl text-gray-300 px-5 pb-2 md:mx-auto">
             “ Combinamos IA, automatización y análisis de datos para crear estrategias digitales que impulsen tus resultados. ”
