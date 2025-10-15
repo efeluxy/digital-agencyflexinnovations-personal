@@ -1,13 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import Button from "../components/Button";
 import { HiX, HiMenu } from "react-icons/hi";
-import LogoHeader from "../assets/logo/LogoHeader.png";
+import LogoÑ from "../assets/logo/LogoÑ.png";
 import useScrollTo from "../utils/useScrollTo";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("Inicio");
   const [blockHide, setBlockHide] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
@@ -16,20 +15,28 @@ export default function Header() {
 
   // Control header hide/show
   useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+    let lastY = window.scrollY;
     const controllHeader = () => {
       if (blockHide) return;
       const currentScrollY = window.scrollY;
-      if (currentScrollY < 10 || currentScrollY < lastScrollY) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-        setIsOpen(false);
-      }
-      setLastScrollY(currentScrollY);
+        if (currentScrollY > lastY) {
+          // Scroll hacia abajo: ocultar header mientras se hace scroll
+          setIsVisible(false);
+          setIsOpen(false);
+          if (scrollTimeout) clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            setIsVisible(true);
+          }, 180);
+        }
+        lastY = currentScrollY;
     };
     window.addEventListener("scroll", controllHeader);
-    return () => window.removeEventListener("scroll", controllHeader);
-  }, [lastScrollY, blockHide]);
+    return () => {
+      window.removeEventListener("scroll", controllHeader);
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+    };
+  }, [blockHide]);
 
   // Detectar sección activa
   useEffect(() => {
@@ -77,12 +84,20 @@ export default function Header() {
           <div className="flex items-center flex-shrink-0 mx-auto md:mx-0 md:mr-8">
             <a
               href="/"
-              className="block transition-transform duration-300 hover:scale-105"
+              className="block transition-transform duration-300 hover:scale-105 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:left-auto md:top-auto md:translate-x-0 md:translate-y-0"
             >
               <img
-                src={LogoHeader}
+                src={LogoÑ}
                 alt="logo"
-                className="h-10 md:h-14 w-auto cursor-pointer rounded-lg drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
+                className="rounded-30px h-10 md:h-14 w-auto cursor-pointer rounded-lg drop-shadow-lg hover:drop-shadow-xl transition-all duration-300 relative z-10 select-none"
+                style={{
+                  WebkitMaskImage:
+                    'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                  maskImage:
+                    'linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                  WebkitMaskComposite: 'intersect',
+                  maskComposite: 'intersect',
+                }}
               />
             </a>
           </div>
@@ -92,7 +107,7 @@ export default function Header() {
             {sections.map((item, index) => (
               <div
                 key={item}
-                className={`relative flex items-center transition-all duration-300 ${activeSection === item ? "bg-black shadow-md [box-shadow:inset_0_2px_16px_0_rgba(96,165,250,0.18)]" : ""} rounded-xl px-3 py-2 min-w-[90px] justify-center`}
+                className={`relative flex items-center transition-all duration-300 ${activeSection === item ? "bg-slate-900/80 shadow-[0_0_10px] shadow-blue-400/50" : ""} rounded-xl px-3 py-2 min-w-[90px] justify-center`}
                 style={{
                   animationDelay: `${index * 100}ms`,
                   animation: "fadeInUp 0.6s ease-out forwards",
@@ -105,7 +120,7 @@ export default function Header() {
                     setIsOpen(false);
                     setTimeout(() => setBlockHide(false), 800);
                   }}
-                  className={`group cursor-pointer transition-all duration-300 text-white/80 hover:text-white font-semibold ${activeSection === item ? "text-white" : ""}`}
+                  className={`group cursor-pointer transition-all duration-300 text-white/80 hover:text-white hover:scale-110 font-semibold ${activeSection === item ? "text-white" : ""}`}
                 >
                   {item}
                 </p>

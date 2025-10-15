@@ -1,32 +1,19 @@
-body {
-  position: relative;
-  background-color: #1d1d1d;
-  min-height: 100vh;
-  z-index: 0;
-}
-
-/* body::before {
+body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
-  background-image: url('./assets/bg.png');
+  background-image: url('./assets/bg.PNG');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  filter: brightness(0.7) blur(16px);
-  opacity: 0.8;
-  pointer-events: none;
-} */
+  filter: brightness(1);
+}
 @import "tailwindcss";
 
 html, body {
-  /* user-select: none; */
-  background-color: #1d1d1d;
+  background-color: #090914;
   color: #EDECEA;
   scroll-behavior: smooth;
   margin: 0;
@@ -45,26 +32,6 @@ html, body {
   --teal: #008080;
 }
 
-/* ==================== */
-/* ANIMACIONES PARA EL FONDO ANIMADO */
-/* ==================== */
-
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg); 
-  }
-  50% { 
-    transform: translateY(-20px) rotate(180deg); 
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* .bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-} */
 
 /* 🔥 Animaciones optimizadas para AppLayout */
 
