@@ -217,7 +217,7 @@ export default function Form() {
             </h1>
             <div className="w-full flex-1 flex items-center justify-center min-h-[24rem] sm:min-h-[28rem] lg:min-h-[32rem]">
               <iframe
-                src="https://calendly.com/agencyflexinnovations/new-meeting"
+                src="https://calendly.com/agencyflexinnovations/30min"
                 title="Reserva tu cita"
                 className="w-full h-full aspect-[4/5] sm:aspect-[3/4] rounded-lg sm:rounded-xl border-2 border-blue-300 shadow-lg bg-blue-900/80"
                 allowFullScreen
